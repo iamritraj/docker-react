@@ -2,7 +2,13 @@ sudo: required
 services:
   - docker
 
+addons:
+  apt:
+    packages:
+      - docker-ce
+	  
 before_install:
+  - docker --version
   - docker build -t iamritraj/docker-react -f Dockerfile.dev .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push iamritraj/docker-react:1
