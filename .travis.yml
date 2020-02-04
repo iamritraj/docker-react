@@ -6,7 +6,7 @@ addons:
   apt:
     packages:
       - docker-ce
-	  
+
 before_install:
   - docker --version
   - docker build -t iamritraj/docker-react -f Dockerfile.dev .
